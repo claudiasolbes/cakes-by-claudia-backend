@@ -4,10 +4,26 @@ class UsersController < ApplicationController
   end
 
   def show
-    users_id = Users.find_by(id: params[:id])
-    userss = Users.all.select do |users|
-      users_id == users.id
+    token = request.headers["Authentication"].split(" ")[1]
+    render json: User.find(decode(token)["user_id"]), status: :accepted
+    # user_username = User.find_by(username: params[:username])
+    # user = User.all.select do |user|
+    #   user_username == user.username
+    # end
+    # render json: user_username
+  end
+
+  def create
+    @user = User.create(user_params)
+    if @user.valid?
+      render json: { user: UserSerializer.new(@user) }, status: :created
+    else
+      render json: { error: 'failed to create user' }, status: :not_acceptable
     end
-    render json: users_id
+  end
+ 
+  private
+  def user_params
+    params.require(:user).permit(:username, :password, :bio, :avatar)
   end
 end
