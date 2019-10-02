@@ -1,4 +1,4 @@
 class Cake < ApplicationRecord
-  has_many:orders
+  belongs_to:order
   has_many:ingredients
 end
