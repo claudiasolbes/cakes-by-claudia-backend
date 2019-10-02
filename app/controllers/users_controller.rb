@@ -16,6 +16,15 @@ class UsersController < ApplicationController
       render json: { error: 'failed to create user' }, status: :not_acceptable
     end
   end
+
+  def destroy
+    user_username = User.find_by(username: params[:username])
+    user = User.all.select do |user|
+      user_username == user.username
+    end
+    user_username.destroy
+    render json: user_username
+  end
  
   private
   def user_params

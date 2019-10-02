@@ -1,13 +1,13 @@
 class OrdersController < ApplicationController
   def index
-    render json: Orders.all
+    render json: Order.all
   end
 
   def show
-    orders_id = Orders.find_by(id: params[:id])
-    orderss = Orders.all.select do |orders|
-      orders_id == orders.id
+    order_id = Order.find_by(id: params[:id])
+    order = Order.all.select do |order|
+      order_id == order.id
     end
-    render json: orders_id
+    render json: order_id
   end
 end

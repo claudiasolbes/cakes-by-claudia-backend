@@ -23,4 +23,4 @@ User.create(name:"Claudia Solbes", email:"cssolbes@hotmail.com", address:"10018 
 User.create(name:"Rui Ponte", email:"ruiponte1990@gmail.com", address:"5116 Wessling Lane, Bethesda, MD, 20814", password:"hello", username:"ruiponte", image: "https://www.pngfind.com/pngs/m/110-1102775_download-empty-profile-hd-png-download.png")
 User.create(name:"a", email:"email", address:"address", password:"a", username:"a", image: "https://www.pngfind.com/pngs/m/110-1102775_download-empty-profile-hd-png-download.png")
 
-Order.create(order_number:1, user_id:1, cakes_id:105, delivery_date:"11/03/2019", charge_total:50, allergies:"none", notes:"make it pretty", delivery:"pickup")
+Order.create(order_number:1, user_id:1, cake_id:105, delivery_date:"11/03/2019", charge_total:50, allergies:"none", notes:"make it pretty", delivery:"pickup")
